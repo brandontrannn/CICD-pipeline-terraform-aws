@@ -2,20 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Git Checkout') {
             steps {
-                sh 'terraform -v'
+                git credentialsId: 
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         echo 'Testing..'
-        //     }
-        // }
-        // stage('Deploy') {
-        //     steps {
-        //         echo 'Deploying....'
-        //     }
-        // }
+        stage('Terraform Init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+        stage('terraform plan) {
+            steps {
+                sh 'terraform plan'
+            }
+        }
+        stage('terraform apply') {
+            steps {
+                sh 'terraform apply --auto-approve'
+            }
+        }
     }
 }
