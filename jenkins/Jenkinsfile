@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git credentialsId: 
+                git branch: 'main', credentialsId: 'gho_ObA3gvrxHU5WwtpxvjKDDy12Jrju2c0Y', url:'https://github.com/brandontrannn/CICD-pipeline-terraform-aws'
             }
         }
         stage('Terraform Init') {
